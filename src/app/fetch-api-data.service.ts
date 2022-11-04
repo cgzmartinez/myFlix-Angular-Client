@@ -8,6 +8,7 @@ import { map } from 'rxjs/operators';
 const apiUrl = 'https://cinema-spark.herokuapp.com/';
 
 const token = localStorage.getItem('token');
+
 const username = localStorage.getItem('username');
 
 @Injectable({
@@ -21,14 +22,14 @@ export class FetchApiDataService {
   // Making the api call for the user registration endpoint
   public userRegistration(userDetails: any): Observable<any> {
     console.log(userDetails);
-    return this.http.post(apiUrl + `users`, userDetails).pipe(
+    return this.http.post(`${apiUrl}users`, userDetails).pipe(
       catchError(this.handleError)
     );
   }
 
   // Making the api call for the user login endpoint
   public userLogin(userCredentials: any): Observable<any> {
-    return this.http.post(apiUrl + 'login', userCredentials).pipe(
+    return this.http.post(`${apiUrl}login`, userCredentials).pipe(
       catchError(this.handleError)
     );
   }
