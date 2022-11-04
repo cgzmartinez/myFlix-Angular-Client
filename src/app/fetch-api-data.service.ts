@@ -14,7 +14,7 @@ const username = localStorage.getItem('username');
   providedIn: 'root'
 })
 
-export class FetchApiDateService {
+export class FetchApiDataService {
 
   constructor(private http: HttpClient) { }
 
