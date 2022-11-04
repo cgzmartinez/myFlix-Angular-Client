@@ -8,8 +8,7 @@ import { map } from 'rxjs/operators';
 const apiUrl = 'https://cinema-spark.herokuapp.com/';
 
 const token = localStorage.getItem('token');
-
-const username = localStorage.getItem('username');
+const user = localStorage.getItem('username');
 
 @Injectable({
   providedIn: 'root'
@@ -18,18 +17,26 @@ const username = localStorage.getItem('username');
 export class FetchApiDataService {
 
   constructor(private http: HttpClient) { }
-
+  /**
+   * calls API endpoint to register a new user
+   * @param userData 
+   * @returns a new user object in JSON format
+   */
   // Making the api call for the user registration endpoint
-  public userRegistration(userDetails: any): Observable<any> {
-    console.log(userDetails);
-    return this.http.post(`${apiUrl}users`, userDetails).pipe(
+  public userRegistration(userData: any): Observable<any> {
+    console.log(userData);
+    return this.http.post(apiUrl + 'users', userData).pipe(
       catchError(this.handleError)
     );
   }
-
+  /**
+   * calls API endpoint to login an existing user
+   * @param userDetails
+   * @returns data of the user in JSON format
+   */
   // Making the api call for the user login endpoint
-  public userLogin(userCredentials: any): Observable<any> {
-    return this.http.post(`${apiUrl}login`, userCredentials).pipe(
+  public userLogin(userDetails: any): Observable<any> {
+    return this.http.post(apiUrl + 'login', userDetails).pipe(
       catchError(this.handleError)
     );
   }
