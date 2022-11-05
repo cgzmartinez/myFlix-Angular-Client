@@ -1,7 +1,6 @@
 $backgroundColor: #f8f9fa;
 $cardColor: #fff;
 $textColor: #343a40;
-$boxShadowColor: #e9ecef;
 
 .profile-page {
     display: flex;
@@ -17,7 +16,7 @@ $boxShadowColor: #e9ecef;
     display: flex;
     padding: 30px;
     flex-direction: column;
-    box-shadow: 10px 5px 5px $boxShadowColor;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     background-color: $cardColor;
 }
 
