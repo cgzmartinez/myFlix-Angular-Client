@@ -1,0 +1,29 @@
+<app-toolbar></app-toolbar>
+<div class="profile-page">
+
+    <mat-card class="profile-card">
+        <mat-card-header class="profile-card-header">
+            <mat-card-title>Profile Information</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content class="profile-card-content">
+            <p><b>Username:</b> {{user.Username}}</p>
+            <p><b>Email:</b> {{user.Email}}</p>
+            <p><b>Birthday:</b> {{user.Birthday | date }}</p>
+        </mat-card-content>
+
+        <mat-card-actions class="profile-actions">
+
+            <button mat-raised-button (click)="openEditProfileDialog()" color="primary">
+                <mat-icon>edit</mat-icon>
+                Edit Profile
+            </button>
+            <button mat-raised-button (click)="deleteProfile()" color="warn">
+                <mat-icon>delete_forever</mat-icon>
+                Delete Profile
+            </button>
+
+        </mat-card-actions>
+    </mat-card>
+
+</div>
