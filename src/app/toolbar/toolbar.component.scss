@@ -1,0 +1,27 @@
+$backgroundColor: #f8f9fa;
+$cardColor: #fff;
+$textColor: #343a40;
+$boxShadowColor: #e9ecef;
+
+.button {
+    margin-left: 5px;
+}
+
+.toolbar {
+    border-bottom: $boxShadowColor;
+    background-color: $cardColor;
+    margin-top: 10px;
+    position: fixed;
+}
+
+.title {
+    font-size: 30px;
+    margin-left: 20px;
+    margin-top: 50px;
+}
+
+.logout-button {
+    position: fixed;
+    top: 0;
+    left: 90vw;
+}
