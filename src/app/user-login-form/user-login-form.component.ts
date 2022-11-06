@@ -19,6 +19,7 @@ import { Router } from '@angular/router';
 export class UserLoginFormComponent implements OnInit {
   @Input() userDetails = { username: '', password: '' };
 
+  /** @constructor */
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialogRef: MatDialogRef<UserLoginFormComponent>,
@@ -28,6 +29,10 @@ export class UserLoginFormComponent implements OnInit {
 
   ngOnInit(): void { }
 
+  /**
+  * This is the function responsible for sending the form inputs to the backend
+  * @function loginUser
+  */
   loginUser(): void {
     this.fetchApiData.userLogin(this.userDetails).subscribe(
       (result) => {

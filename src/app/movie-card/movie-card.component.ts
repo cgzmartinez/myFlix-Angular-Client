@@ -18,6 +18,7 @@ export class MovieCardComponent implements OnInit {
   movies: any[] = [];
   FavoriteMovies: any[] = [];
 
+  /** @constructor */
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialog: MatDialog,
@@ -44,10 +45,18 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
+  /**
+  * This function is used to add a movie to the user's favorites or remove
+  * @function isFav
+  */
   isFav(movieId: string): boolean {
     return this.FavoriteMovies.includes(movieId)
   }
 
+  /** 
+  * This function is used to show the movie's genre dialog
+  * @function openGenreDialog
+  */
   openGenreDialog(name: string, description: string): void {
     this.dialog.open(GenreComponent, {
       data: {
@@ -59,6 +68,10 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
+  /** 
+  * This function is used to show the movie's director dialog
+  * @function openDirectorDialog
+  */
   openDirectorDialog(name: string, bio: string, birthday: Date): void {
     this.dialog.open(DirectorComponent, {
       data: {
@@ -72,6 +85,10 @@ export class MovieCardComponent implements OnInit {
 
   }
 
+  /** 
+  * This function is used to show the movie's director dialog
+  * @function openSummaryDialog
+  */
   openSummaryDialog(title: string, description: string): void {
     this.dialog.open(SummaryComponent, {
       data: {
@@ -83,6 +100,7 @@ export class MovieCardComponent implements OnInit {
     });
 
   }
+
 
   addToFavoriteMovies(movieId: string): void {
     console.log(movieId);

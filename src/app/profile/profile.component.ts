@@ -17,6 +17,7 @@ import { Router } from '@angular/router';
 export class ProfileComponent implements OnInit {
   user: any = {};
 
+  /** @constructor */
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialog: MatDialog,
@@ -36,12 +37,20 @@ export class ProfileComponent implements OnInit {
     })
   }
 
+  /**
+  * This function is used to open edit profile dialog
+  * @function openEditProfileDialog
+  */
   openEditProfileDialog(): void {
     this.dialog.open(EditProfileComponent, {
       width: '300px'
     })
   }
 
+  /**
+  * This function is used to delete a user Profile
+  *  @function deleteProfile
+  */
   deleteProfile(): void {
     if (confirm('Are you sure you want to delete your account? This action cannnot be undone.')) {
       this.router.navigate(['welcome']).then(() => {

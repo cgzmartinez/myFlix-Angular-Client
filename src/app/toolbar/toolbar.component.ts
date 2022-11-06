@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class ToolbarComponent implements OnInit {
 
+  /** @constructor */
   constructor(
     public router: Router
   ) { }
