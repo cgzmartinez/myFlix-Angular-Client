@@ -40,8 +40,7 @@ export class UserLoginFormComponent implements OnInit {
         console.log(result);
         // Add token and username to local Storage
         localStorage.setItem('token', result.token);
-        localStorage.setItem('user', result.user.Username);
-        this.dialogRef.close(); // Close the modal on success
+        localStorage.setItem('user', result.user.username);
         this.router.navigate(['movies']);
       },
       (result) => {
