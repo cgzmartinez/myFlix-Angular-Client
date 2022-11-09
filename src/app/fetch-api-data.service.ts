@@ -11,7 +11,7 @@ const token = localStorage.getItem('token');
 const username = localStorage.getItem('user');
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 
 export class FetchApiDataService {
@@ -113,7 +113,6 @@ export class FetchApiDataService {
   //Get user and get favorite movies of a user
   /**
   * @service GET to an API endpoint to get a specific user
-  * @param {string} user
   * @returns a user object in json format
   * @function getUser
   */
@@ -132,7 +131,6 @@ export class FetchApiDataService {
   // Get favourite movies for a user
   /**
   * @service GET to an API endpoint to get a specific user's favorite movies
-  * @param {string} user
   * @returns a user object in json format
   * @function getFavoriteMovies
   */
@@ -157,7 +155,7 @@ export class FetchApiDataService {
    * @returns a user object in json format
    * @function addFavoriteMovie
    */
-  addFavoriteMovie(movieID: any): Observable<any> {
+  public addFavoriteMovie(movieID: any): Observable<any> {
     const token = localStorage.getItem('token');
     // Get username from localStorage for URLs
     const user = localStorage.getItem('user');

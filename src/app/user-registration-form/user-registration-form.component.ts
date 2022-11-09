@@ -10,41 +10,39 @@ import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
-  selector: 'app-user-registration-form',
-  templateUrl: './user-registration-form.component.html',
-  styleUrls: ['./user-registration-form.component.scss']
+    selector: 'app-user-registration-form',
+    templateUrl: './user-registration-form.component.html',
+    styleUrls: ['./user-registration-form.component.scss']
 })
 export class UserRegistrationFormComponent implements OnInit {
 
-  @Input() userData = { Username: '', Password: '', Email: '', Birthday: '' };
+    @Input() userData = { Username: '', Password: '', Email: '', Birthday: '' };
 
-  constructor(
-    public fetchApiData: FetchApiDataService,
-    public dialogRef: MatDialogRef<UserRegistrationFormComponent>,
-    public snackBar: MatSnackBar) { }
+    constructor(
+        public fetchApiData: FetchApiDataService,
+        public dialogRef: MatDialogRef<UserRegistrationFormComponent>,
+        public snackBar: MatSnackBar) { }
 
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {
+    }
 
-  /**
-  * This is the function responsible for registering the new user
-  * @function registerUser
-  */
-  registerUser(): void {
-    this.fetchApiData.userRegistration(this.userData).subscribe((result) => {
-      // Logic for a successful user registration goes here! (To be implemented)
-      this.dialogRef.close(); // This will close the modal on success!
-      localStorage.setItem('token', result.token);
-      localStorage.setItem('user', result.user.username);
-      console.log(Response);
-      this.snackBar.open(result, 'OK', {
-        duration: 2000
-      });
-    }, (result) => {
-      console.log(Response);
-      this.snackBar.open(result, 'OK', {
-        duration: 2000
-      });
-    });
-  }
+    /**
+    * This is the function responsible for registering the new user
+    * @function registerUser
+    */
+    registerUser(): void {
+        this.fetchApiData.userRegistration(this.userData).subscribe((result) => {
+            // Logic for a successful user registration goes here! (To be implemented)
+            this.dialogRef.close(); // This will close the modal on success!
+            console.log(Response);
+            this.snackBar.open(result, 'OK', {
+                duration: 2000
+            });
+        }, (result) => {
+            console.log(Response);
+            this.snackBar.open(result, 'OK', {
+                duration: 2000
+            });
+        });
+    }
 }
