@@ -7,9 +7,6 @@ import { map } from 'rxjs/operators';
 //Declaring the api url that will provide data for the client app
 const apiUrl = 'https://cinema-spark.herokuapp.com/';
 
-const token = localStorage.getItem('token');
-const username = localStorage.getItem('user');
-
 @Injectable({
   providedIn: 'root',
 })
@@ -55,24 +52,6 @@ export class FetchApiDataService {
     const token = localStorage.getItem('token');
     return this.http
       .get(apiUrl + `movies`, {
-        headers: new HttpHeaders({
-          Authorization: 'Bearer ' + token,
-        }),
-      })
-      .pipe(map(this.extractResponseData), catchError(this.handleError));
-  }
-
-  //Get one movie endpoint
-  /**
-  * @service GET to an API endpoint to get a movie by title
-  * @param {string} Title
-  * @returns a an array of movie objects in json format
-  * @function getMovies
-  */
-  public getMovies(Title: any): Observable<any> {
-    const token = localStorage.getItem('token');
-    return this.http
-      .get(apiUrl + `movies/${Title}`, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
